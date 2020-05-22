@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/callback', ['uses' => 'HomeController@callback']);
+Route::get('/login', ['uses' => 'HomeController@getLogin']);
