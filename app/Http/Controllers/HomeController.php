@@ -32,7 +32,7 @@ class HomeController extends Controller
         $oauthCode = isset($_GET['code']) ? $_GET['code'] : "THIS NOT CALLBACK PAGE !!!";
         $accessToken = $this->helper->getAccessToken($this->config['callback_url']); // get access token
         $params = ['offset' => 0, 'limit' => 10, 'fields' => "id, name, birthday, picture"];
-        $response = $zalo->get(ZaloEndpoint::API_GRAPH_FRIENDS, $accessToken, $params);
+        $response = $this->zalo->get(ZaloEndpoint::API_GRAPH_FRIENDS, $accessToken, $params);
         $result = $response->getDecodedBody(); 
         echo '<pre>';
         print_r($result);
