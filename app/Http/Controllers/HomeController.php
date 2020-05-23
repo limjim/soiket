@@ -31,14 +31,11 @@ class HomeController extends Controller
     public function callback(\Request $request) {
         $oauthCode = isset($_GET['code']) ? $_GET['code'] : "THIS NOT CALLBACK PAGE !!!";
         $accessToken = $this->helper->getAccessToken($this->config['callback_url']); // get access token
-        if ($accessToken != null) {
-            $expires = $accessToken->getExpiresAt(); // get expires time
-        }
+        $params = ['offset' => 0, 'limit' => 10, 'fields' => "id, name, birthday, picture"];
+        $response = $zalo->get(ZaloEndpoint::API_GRAPH_FRIENDS, $accessToken, $params);
+        $result = $response->getDecodedBody(); 
         echo '<pre>';
-        print_r($accessToken);
-        echo '</pre>';
-        echo '<pre>';
-        print_r($expires);
+        print_r($result);
         echo '</pre>';
         exit();
     }
