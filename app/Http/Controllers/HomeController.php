@@ -8,6 +8,7 @@ class HomeController extends Controller
 {
     protected $zalo;
     protected $config;
+    protected $helper;
 
     public function __construct() {
         $this->config = [
@@ -16,26 +17,30 @@ class HomeController extends Controller
             'callback_url' => config('zalo.callback_url')
         ];
         $this->zalo = new Zalo($this->config);
+        $this->helper = $this->zalo->getRedirectLoginHelper();
 
     }
 
     public function getLogin(\Request $request) {
-        $helper = $this->zalo -> getRedirectLoginHelper();
-        $loginUrl = $helper->getLoginUrl($this->config['callback_url']);
+        $uri = urlencode($this->config['callback_url']);
+        $loginUrl = $this->helper->getLoginUrl($uri);
 
         echo '<a href="' . $loginUrl . '">click here</a>';
     }
 
     public function callback(\Request $request) {
         $oauthCode = isset($_GET['code']) ? $_GET['code'] : "THIS NOT CALLBACK PAGE !!!";
-        $accessToken = $helper->getAccessToken($$this->config['callback_url']); // get access token
-        echo '<pre>';
-        print_r($accessToken);
-        echo '</pre>';
-        exit();
+        $accessToken = $this->helper->getAccessToken($this->config['callback_url']); // get access token
         if ($accessToken != null) {
             $expires = $accessToken->getExpiresAt(); // get expires time
         }
+        echo '<pre>';
+        print_r($accessToken);
+        echo '</pre>';
+        echo '<pre>';
+        print_r($expires);
+        echo '</pre>';
+        exit();
     }
 
 }
