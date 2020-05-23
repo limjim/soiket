@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Zalo\Zalo;
+use Zalo\ZaloEndpoint;
 
 class HomeController extends Controller
 {
