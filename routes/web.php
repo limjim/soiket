@@ -18,3 +18,4 @@ Route::get('/', function () {
 
 Route::get('/callback', ['uses' => 'HomeController@callback']);
 Route::get('/login', ['uses' => 'HomeController@getLogin']);
+Route::get('/fetch-friends', ['uses' => 'HomeController@fetchFriends']);

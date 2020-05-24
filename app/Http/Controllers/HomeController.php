@@ -39,4 +39,15 @@ class HomeController extends Controller
         
     }
 
+    public function fetchFriends(\Request $request) {
+        $accessToken = config('zalo.access_token');
+        $params = ['offset' => 0, 'limit' => 1000, 'fields' => "id, name, birthday, gender, picture"];
+        $response = $this->zalo->get(ZaloEndpoint::API_GRAPH_INVITABLE_FRIENDS, $accessToken, $params);
+        $result = $response->getDecodedBody();
+        echo '<pre>';
+        print_r($result);
+        echo '</pre>';
+        exit();
+    }
+
 }
