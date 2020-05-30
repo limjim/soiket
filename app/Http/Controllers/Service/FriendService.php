@@ -52,4 +52,9 @@ class FriendService extends \App\Http\Controllers\Controller
        $filter['orders'] = ['full_name' => 'ASC'];
        return $filter;
     }
+
+
+    public function fetchFriends(Request $request) {
+        
+    }
 }
