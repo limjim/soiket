@@ -43,16 +43,17 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{ asset('img/shop-avatar.jpg') }}" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?= \Auth::user()->email ? \Auth::user()->email : ''?></span>
+              <span class="hidden-xs">guest@soiket.com</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
                 <img src="{{ asset('img/shop-avatar.jpg') }}" class="img-circle" alt="User Image">
                 <p>
-                <?= \Auth::user()->name ? \Auth::user()->name : ''?>
+                  Hello Guest
                 </p>
               <!-- Menu Footer-->
+              <!--
               <li class="user-footer text-center">
                 <div class="pull-left">
                   <a href="{{ route('profile') }}" class="btn btn-default btn-flat"><i class="fa fa-info"></i> Xem hồ sơ</a>
@@ -61,14 +62,17 @@
                   <a href="{{ route('password') }}" class="btn btn-default btn-flat"><i class="fa fa-key"></i> Mật khẩu</a>
                 </div>
               </li>
+              -->
             </ul>
           </li>
 
           <li>
+          <!--
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
             <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
               {{ csrf_field() }}
             </form>
+            -->
           </li>
         </ul>
       </div>
