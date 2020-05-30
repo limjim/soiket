@@ -46,7 +46,7 @@ class HomeController extends \App\Http\Controllers\Controller
             if (isset($output['picture']['data']['url'])) {
                 $data['image'] = $output['picture']['data']['url'];
             }
-            $user = Auth::user();
+            $user = \Auth::user();
             if ($user) {
                 $data['user_id'] = $user->id;
             }
