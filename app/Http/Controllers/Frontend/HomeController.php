@@ -52,11 +52,12 @@ class HomeController extends \App\Http\Controllers\Controller
             }
             $checkExist = $this->accountRepository->checkExists(['uid' => $output['id']]);
             if ($checkExist) {
-                $this->accountRepository->updateByField(['uid' => $output['id']], $data);
+                $account = $this->accountRepository->updateByField(['uid' => $output['id']], $data);
             } else {
-                $this->accountRepository->create($data);
+                $account = $this->accountRepository->create($data);
             }
-            return redirect('friends');
+            session(['account' => $account]);
+            return redirect('http://soiket.site/friends');
         } else {
             return response('Not connected!', 401)->header('Content-Type', 'text/plain');;
         }

@@ -57,4 +57,8 @@ class FriendService extends \App\Http\Controllers\Controller
     public function fetchFriends(Request $request) {
         
     }
+
+    private function getAccessToken() {
+        
+    }
 }
