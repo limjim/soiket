@@ -15,7 +15,7 @@ Route::group(['namespace' => 'Frontend'], function() {
     Route::get('/zalo', ['uses' => 'HomeController@connectZalo']);
 });
 
-Auth::routes();
+//Auth::routes();
 Route::group(['namespace' => 'System'], function () {
     Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
     Route::get('/password', ['as' => 'password', 'uses' => 'ProfileController@password']);
@@ -23,7 +23,7 @@ Route::group(['namespace' => 'System'], function () {
     Route::get('/friends', ['as' => 'friend', 'uses' => 'FriendController@index']);
 });
 
-Route::group(['prefix' => 'service', 'namespace' => 'Service', 'middleware' => ['auth']], function() {
+Route::group(['prefix' => 'service', 'namespace' => 'Service'], function() {
     Route::get('friend/find', ['as' => 'friend:find', 'uses' => 'FriendService@find']);
     Route::get('/fetch-friends', ['uses' => 'FriendService@fetchFriends']);
 });

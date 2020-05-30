@@ -39,21 +39,18 @@
               <li class="footer"><a href="" ng-click="seenAll()">Đánh dấu tất cả đã đọc</a></li>
             </ul>
           </li>
-
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{ asset('img/shop-avatar.jpg') }}" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{ Auth::user()->email }}</span>
+              <span class="hidden-xs"><?= \Auth::user()->email ? \Auth::user()->email : ''?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
                 <img src="{{ asset('img/shop-avatar.jpg') }}" class="img-circle" alt="User Image">
                 <p>
-                  {{ Auth::user()->name }}
-                  <small>{{ Auth::user()->phone }}</small>
-                  <small>{{ Auth::user()->address }}</small>
+                <?= \Auth::user()->name ? \Auth::user()->name : ''?>
                 </p>
               <!-- Menu Footer-->
               <li class="user-footer text-center">
