@@ -16,7 +16,7 @@ Route::group(['namespace' => 'Frontend'], function() {
 });
 
 Auth::routes();
-Route::group(['middleware' => ['auth'], 'namespace' => 'System'], function () {
+Route::group(['namespace' => 'System'], function () {
     Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
     Route::get('/password', ['as' => 'password', 'uses' => 'ProfileController@password']);
     Route::get('/profile', ['as' => 'profile', 'uses' => 'ProfileController@index']);
