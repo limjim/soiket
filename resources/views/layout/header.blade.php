@@ -53,26 +53,8 @@
                   Hello Guest
                 </p>
               <!-- Menu Footer-->
-              <!--
-              <li class="user-footer text-center">
-                <div class="pull-left">
-                  <a href="{{ route('profile') }}" class="btn btn-default btn-flat"><i class="fa fa-info"></i> Xem hồ sơ</a>
-                </div>
-                <div class="pull-right">
-                  <a href="{{ route('password') }}" class="btn btn-default btn-flat"><i class="fa fa-key"></i> Mật khẩu</a>
-                </div>
-              </li>
-              -->
+             
             </ul>
-          </li>
-
-          <li>
-          <!--
-            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
-            <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
-              {{ csrf_field() }}
-            </form>
-            -->
           </li>
         </ul>
       </div>
