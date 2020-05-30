@@ -10,12 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+Route::group(['middleware' => ['auth'], 'namespace' => 'System'], function () {
+    Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
+    Route::get('/callback', ['uses' => 'HomeController@callback']);
+    Route::get('/password', ['as' => 'password', 'uses' => 'ProfileController@password']);
+    Route::get('/profile', ['as' => 'profile', 'uses' => 'ProfileController@index']);
+    Route::get('/friends', ['as' => 'friend', 'uses' => 'FriendController@index']);
 });
 
-
-Route::get('/callback', ['uses' => 'HomeController@callback']);
-Route::get('/login', ['uses' => 'HomeController@getLogin']);
-Route::get('/fetch-friends', ['uses' => 'HomeController@fetchFriends']);
+Route::group(['prefix' => 'service', 'namespace' => 'Service', 'middleware' => ['auth']], function() {
+    Route::get('friend/find', ['as' => 'friend:find', 'uses' => 'FriendService@find']);
+    Route::get('/fetch-friends', ['uses' => 'FriendService@fetchFriends']);
+});

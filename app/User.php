@@ -9,6 +9,9 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = 's_users';
+    protected $primaryKey = 'id';
+    public $timestamps = true;
     /**
      * The attributes that are mass assignable.
      *
@@ -24,6 +27,17 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password'
     ];
+
+    /**
+     * Overrides the method to ignore the remember token.
+    */
+    public function setAttribute($key, $value)
+    {
+        $isRememberTokenAttribute = $key == $this->getRememberTokenName();
+        if (!$isRememberTokenAttribute) {
+            parent::setAttribute($key, $value);
+        }
+    }
 }

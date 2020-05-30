@@ -1,0 +1,1 @@
+<button type="button" class="btn btn-sm btn-primary" ng-click="fetchFriend()"><i class="fa fa-plus"></i> Cập nhật bạn bè</button>

@@ -1,0 +1,1 @@
+<label for="checkbox-agree" style="margin-bottom:15px;"> <input type="checkbox" ng-model="agree" id="checkbox-agree" required> &nbsp;Tôi đã đọc, hiểu rõ và đồng ý với Quy chế hoạt động, điều khoản và Chính sách bảo mật thông tin của Soiket.com </label>
