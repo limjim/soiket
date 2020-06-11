@@ -62,4 +62,6 @@ class HomeController extends \App\Http\Controllers\Controller
             return response('Not connected!', 401)->header('Content-Type', 'text/plain');;
         }
     }
+
+    
 }

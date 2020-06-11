@@ -18,6 +18,7 @@ app.controller('FriendController', function ($scope, $http, $timeout, $rootScope
 
     $scope.clear = function () {
         $scope.filter = {};
+        $scope.fetchFriend();
         $scope.find();
     }
 
@@ -48,7 +49,14 @@ app.controller('FriendController', function ($scope, $http, $timeout, $rootScope
     }
 
     $scope.fetchFriend = function() {
-        
+        $http({
+            method: 'GET',
+            url: '/service/friend/fetch'
+        }).then(function success(response) {
+            if (response.data.status == 'successful') {
+                $scope.clear();
+            }
+        });
     }
 
     initialize();

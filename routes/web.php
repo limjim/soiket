@@ -25,5 +25,7 @@ Route::group(['namespace' => 'System'], function () {
 
 Route::group(['prefix' => 'service', 'namespace' => 'Service'], function() {
     Route::get('friend/find', ['as' => 'friend:find', 'uses' => 'FriendService@find']);
-    Route::get('/fetch-friends', ['uses' => 'FriendService@fetchFriends']);
+    Route::get('friend/fetch', ['uses' => 'FriendService@fetchFriends']);
+    Route::post('friend/send-message', ['uses' => 'FriendService@sendMessage']);
+    Route::post('megaads/test', ['uses' => 'FriendService@test']);
 });

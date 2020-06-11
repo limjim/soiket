@@ -11,7 +11,7 @@ namespace App\Repositories;
 use App\Models\Friend;
 
 class FriendRepository extends Repository {
-    const MODEL = Deal::class;
+    const MODEL = Friend::class;
 
     public function create($args = null) {
         if ($args == null) {
